@@ -1,0 +1,14 @@
+   <!-- FIX FOR STATIC NAV WHILE LOGGED IN -->
+    <?php
+      $c = Page::getCurrentPage();
+      $cp = new Permissions($c);
+      if (is_object($cp) && ($cp->canWrite() || $cp->canAddSubContent() || $cp->canAdminPage())) { ?>
+<style type="text/css">
+nav{top:49px}
+</style>
+<?php }   ?>
+
+<!-- FIX FOR EDITABLE REGIONS NOT BEING CLICKABLE ON CORRECT PLACE -->
+<style>
+body { position: static; }
+</style>
